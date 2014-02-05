@@ -1,0 +1,68 @@
+package se.kth.csc.iprog.dinnerplanner.swing.view;
+
+import java.awt.BorderLayout;
+import java.awt.Color;
+
+import javax.swing.BoxLayout;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+//import javax.swing.JFrame;
+
+import se.kth.csc.iprog.dinnerplanner.model.DinnerModel;
+
+
+public class MainView extends JPanel {
+	
+	private static final long serialVersionUID = 1L;
+	
+	// The components of our view
+	JLabel label = new JLabel();
+	JLabel dinnerMenu = new JLabel();
+	
+	JButton plusButton = new JButton();
+	JButton minusButton = new JButton();
+	JButton prepButton = new JButton();
+	JButton ingButton = new JButton();
+	JPanel panelL = new JPanel();
+	JPanel panelR = new JPanel();
+
+	
+	//JFrame Frame1 = new JFrame("Test Frame");
+	
+	public MainView(){
+		
+
+		prepButton.setText("Preparation");
+		ingButton.setText("Ingriedients");
+		plusButton.setText("+");
+		minusButton.setText("-");
+		
+		label.setText("Hello world !!!!!!!!!!!!!!!!!!!!");
+		dinnerMenu.setText("Dinner Menu");
+		
+		panelR.setBackground(Color.GRAY);
+		
+	    panelR.setLayout(new BoxLayout(panelR, BoxLayout.Y_AXIS));
+	    //panelR.add(BorderLayout.CENTER);
+		
+		//panel.setToolTipText("Panel 2 :) ");
+		//Frame1.setSize(400,150);
+		
+		// Add label to the view
+		panelL.add(dinnerMenu);
+		panelR.add(plusButton);
+		panelR.add(minusButton);
+		
+		panelR.add(prepButton);
+		panelR.add(ingButton);
+		panelR.add(label);
+		
+		this.add(panelL);
+		this.add(panelR);
+		
+		// Setup the rest of the view layout
+	}
+	
+}
