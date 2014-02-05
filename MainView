@@ -3,11 +3,14 @@ package se.kth.csc.iprog.dinnerplanner.swing.view;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
-
+import java.awt.Font;
+import java.awt.GridLayout;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
+import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTabbedPane;
 
 //import javax.swing.JFrame;
 
@@ -15,57 +18,95 @@ import se.kth.csc.iprog.dinnerplanner.model.DinnerModel;
 
 
 public class MainView extends JPanel {
-	
+
 	private static final long serialVersionUID = 1L;
 	
 	// The components of our view
 	JLabel label = new JLabel();
 	JLabel dinnerMenu = new JLabel();
-	
+	JLabel drag = new JLabel();
+	JLabel numOfPeople = new JLabel();
+
 	JButton plusButton = new JButton();
 	JButton minusButton = new JButton();
 	JButton prepButton = new JButton();
 	JButton ingButton = new JButton();
+	
 	JPanel panelL = new JPanel();
 	JPanel panelR = new JPanel();
+	JPanel TopContent = new JPanel(new GridLayout(2,2));
+	JPanel ButtonContent = new JPanel(new GridLayout(1,2));
+	JPanel Background = new JPanel(new GridLayout(4,1));
+	
+	JTabbedPane starterTab = new JTabbedPane();
 
-	
+
 	//JFrame Frame1 = new JFrame("Test Frame");
-	
+
 	public MainView() {
-		
+		//starterTab.add("Starter",);
 
 		prepButton.setText("Preparation");
 		ingButton.setText("Ingriedients");
 		plusButton.setText("+");
 		minusButton.setText("-");
 		
+		drag.setText("Drag your dish to the menu");
 		label.setText("Hello world !!!!!!!!!!!!!!!!!!!!");
 		dinnerMenu.setText("Dinner Menu");
+		numOfPeople.setText("Number of people: ");
+
 		
-		panelR.setBackground(Color.GRAY);
+		//panelR.setBackground(Color.BLUE);
+		panelL.setBackground(Color.PINK);
+		//Background.setBackground(Color.BLUE);
+
+
+		Background.setLayout(new BoxLayout(Background, BoxLayout.PAGE_AXIS));
 		
-	    panelR.setLayout(new BoxLayout(panelR, BoxLayout.Y_AXIS));
-	    panelR.setPreferredSize(new Dimension(500, 750));
-	    panelL.setPreferredSize(new Dimension(1000, 750));
+	    panelR.setPreferredSize(new Dimension(500, 850));
+	    panelL.setPreferredSize(new Dimension(1000, 850));
+	    Background.setPreferredSize(new Dimension(500, 840));
+	    
+	    ButtonContent.setPreferredSize(new Dimension(500,10));
 	    //panelR.add(BorderLayout.CENTER);
-		
-		//panel.setToolTipText("Panel 2 :) ");
-		//Frame1.setSize(400,150);
-		
+
+
 		// Add label to the view
-		panelL.add(dinnerMenu);
-		panelR.add(plusButton);
-		panelR.add(minusButton);
 		
-		panelR.add(prepButton);
-		panelR.add(ingButton);
-		panelR.add(label);
+	    panelR.add(Background);
+	    
+	    Background.add(TopContent); //1
+	    TopContent.add(numOfPeople);
+
+		TopContent.add(plusButton);
+		TopContent.add(new JLabel("Total Cost: "));
+		TopContent.add(new JLabel ("0KR "));
 		
+		Background.add(dinnerMenu); //2
+		
+		Background.add(drag); //3
+		
+		//Background.add(ButtonContent); //4
+
+		//ButtonContent.add(prepButton);
+		//ButtonContent.add(ingButton);
+		
+		//panelR.add(minusButton);
+
+		
+		label.setFont(new Font("Arial", Font.BOLD, 22));
+		dinnerMenu.setFont(new Font("Arial", Font.BOLD, 32));
+		
+		//Vänster sida
+		panelL.add(label);
+		panelL.add(starterTab);
+		//---
+
 		this.add(panelL);
 		this.add(panelR);
-		
+
 		// Setup the rest of the view layout
 	}
-	
+
 }
