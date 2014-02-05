@@ -2,6 +2,7 @@ package se.kth.csc.iprog.dinnerplanner.swing.view;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Dimension;
 
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -31,7 +32,7 @@ public class MainView extends JPanel {
 	
 	//JFrame Frame1 = new JFrame("Test Frame");
 	
-	public MainView(){
+	public MainView() {
 		
 
 		prepButton.setText("Preparation");
@@ -45,6 +46,8 @@ public class MainView extends JPanel {
 		panelR.setBackground(Color.GRAY);
 		
 	    panelR.setLayout(new BoxLayout(panelR, BoxLayout.Y_AXIS));
+	    panelR.setPreferredSize(new Dimension(500, 750));
+	    panelL.setPreferredSize(new Dimension(1000, 750));
 	    //panelR.add(BorderLayout.CENTER);
 		
 		//panel.setToolTipText("Panel 2 :) ");
